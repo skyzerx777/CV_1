@@ -1,3 +1,6 @@
+$main-text-color: #323232;
+$secondary-text-color: #ffffff;
+
 @font-face {
     font-family: "Helvetica Neue";
     src: url("../fonts/HelveticaNeueCyr-Roman.woff") format("woff");
@@ -9,7 +12,97 @@
 @font-face {
     font-family: "Helvetica Neue";
     src: url("../fonts/HelveticaNeueCyr-Bold.woff") format("woff");
-    font-weight: bold;
+    font-weight: 700;
     font-style: normal;
     font-display: swap;
+}
+
+@font-face {
+    font-family: "Helvetica Neue";
+    src: url("../fonts/HelveticaNeueCyr-Heavy.woff") format("woff");
+    font-weight: 900;
+    font-style: normal;
+    font-display: swap;
+}
+
+* {
+    font-family: Helvetica Neue;
+    box-sizing: border-box;
+}
+html {
+    background-color: lightgray;
+}
+body {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 0 60px;
+    background-color: white;
+}
+
+.container {
+    width: 100%;
+}
+
+.header-name {
+    font-size: 2rem;
+    color: $main-text-color;
+    margin: 0;
+    line-height: 8rem;
+
+    @media (max-width: 768px) {
+        font-size: 1.5rem;
+        line-height: 5rem;
+    }
+
+    @media (max-width: 520px) {
+        text-align: center;
+        font-size: 1.1875rem;
+        line-height: 1.5rem;
+        padding: 30px 0;
+    }
+}
+
+.navbar {
+    font-size: 1.125rem;
+    text-align: right;
+    height: 20px;
+    border-bottom: 2px dashed $main-text-color;
+
+    @media (max-width: 660px) {
+        border: none;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: center;
+        height: auto;
+    }
+
+    @media (max-width: 520px) {
+        font-size: 1rem;
+    }
+
+    &-link {
+        display: inline-block;
+        text-transform: uppercase;
+        margin-left: 15px;
+        line-height: 16px;
+
+        @media (max-width: 660px) {
+            margin-bottom: 25px;
+            margin-left: 0;
+            border-bottom: 2px solid $main-text-color;
+        }
+
+        &:hover {
+            cursor: pointer;
+            font-weight: 900;
+            color: black;
+            border-bottom: 2px solid $main-text-color;
+
+            @media (max-width: 660px) {
+                border-bottom: 2px solid $main-text-color;
+                font-weight: 400;
+            }
+        }
+    }
 }
