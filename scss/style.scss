@@ -4,7 +4,7 @@ $secondary-text-color: #ffffff;
 @font-face {
     font-family: "Helvetica Neue";
     src: url("../fonts/HelveticaNeueCyr-Roman.woff") format("woff");
-    font-weight: normal;
+    font-weight: 400;
     font-style: normal;
     font-display: swap;
 }
@@ -35,16 +35,18 @@ html {
 body {
     max-width: 1280px;
     margin: 0 auto;
-    padding: 0 60px;
+    // padding: 0 60px;
     background-color: white;
 
-    @media (max-width: 768px) {
-        padding: 0 20px;
-    }
+    // @media (max-width: 768px) {
+    //     padding: 0 20px;
+    // }
 }
 
 .container {
-    width: 100%;
+    padding: 0;
+    padding: 0 60px;
+    background-color: white;
 }
 
 .header-name {
@@ -232,4 +234,197 @@ body {
     &-sign {
         text-align: end;
     }
+}
+
+.row.skills-row {
+    margin-top: 30px;
+}
+
+.column.skills-column {
+    width: 50%;
+    @media (max-width: 768px) {
+        width: 100%;
+    }
+}
+
+.skills-scale {
+    font-style: italic;
+    display: flex;
+    flex-direction: column;
+    margin-top: 15px;
+    @media (max-width: 768px) {
+        text-align: start;
+    }
+
+    &-element {
+        background-color: lightgray;
+        padding: 5px 10px;
+        margin-top: 10px;
+
+        &:nth-of-type(1) {
+            width: 80%;
+        }
+        &:nth-of-type(2) {
+            width: 100%;
+        }
+        &:nth-of-type(3) {
+            width: 100%;
+        }
+        &:nth-of-type(4) {
+            width: 80%;
+        }
+        &:nth-of-type(5) {
+            width: 0%;
+        }
+    }
+}
+
+.scale {
+    border-bottom: 2px solid $main-text-color;
+    height: 15px;
+    border-collapse: collapse;
+
+    td {
+        border-right: 2px solid $main-text-color;
+        width: 20%;
+    }
+}
+
+.scale-numbers {
+    display: grid;
+    grid-template-columns: calc(20% - 7px) 20% 20% 20% 20%;
+    gap: 0px 0px;
+    grid-auto-flow: row;
+    grid-template-areas: "a a a a a";
+}
+
+.skills-list {
+    list-style: none;
+    margin: 20px 0 0 0;
+
+    &-element {
+        color: $main-text-color;
+        margin-bottom: 10px;
+        font-size: 0.875rem;
+        position: relative;
+
+        &::before {
+            content: "";
+            width: 15px;
+            height: 15px;
+            background-color: $main-text-color;
+            border-radius: 50%;
+            position: absolute;
+            left: -25px;
+        }
+    }
+}
+
+.note {
+    margin: 15px 0;
+    display: flex;
+
+    @media (max-width: 768px) {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+    &-img {
+        max-width: 100px;
+        max-height: 100px;
+        margin: 0 50px;
+
+        @media (max-width: 768px) {
+            margin-bottom: 15px;
+        }
+    }
+
+    &-text {
+        margin: 0;
+    }
+}
+
+.container.footer {
+    padding: 0;
+}
+
+.row.footer {
+    width: 100%;
+    background-color: #000000ef;
+    border-bottom: none;
+    justify-content: center;
+    padding: 30px 0;
+}
+
+.column.footer {
+    width: 20%;
+    color: $secondary-text-color;
+
+    &:nth-of-type(3) {
+        width: 40%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    @media (max-width: 768px) {
+        flex-direction: column;
+        justify-content: space-between;
+        text-align: center;
+        width: 100%;
+
+        &:nth-of-type(3) {
+            margin-top: 30px;
+        }
+    }
+}
+
+.footer-header {
+    font-weight: 400;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin: 0;
+}
+
+.footer-link {
+    color: $secondary-text-color;
+    text-decoration: none;
+}
+
+.footer-social {
+    color: $secondary-text-color;
+    letter-spacing: 1px;
+    text-decoration: none;
+    border-bottom: 1px solid $secondary-text-color;
+}
+.circle {
+    background: $secondary-text-color;
+    border-radius: 50%;
+    height: 150px;
+    width: 150px;
+    color: $main-text-color;
+    position: relative;
+    z-index: 2;
+
+    &-text {
+        position: absolute;
+        left: calc(50% - 27px);
+        top: calc(50% - 25px);
+        font-weight: 700;
+        font-size: 20px;
+
+        @media (max-width: 768px) {
+            left: calc(50% - 60px);
+            top: calc(50% - 15px);
+        }
+    }
+}
+
+.circle-outer {
+    position: absolute;
+    z-index: 1;
+    height: 200px;
+    width: 200px;
+    background: radial-gradient(circle at center, transparent 62%, white 63%);
+    border-radius: 50%;
 }
