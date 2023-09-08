@@ -94,6 +94,7 @@ body {
         line-height: 16px;
         text-decoration: none;
         color: $main-text-color;
+        transition: font-weight 0.15s;
 
         @media (max-width: 660px) {
             margin-bottom: 30px;
